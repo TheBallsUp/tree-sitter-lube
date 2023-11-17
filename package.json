@@ -1,0 +1,29 @@
+{
+  "name": "tree-sitter-lube",
+  "version": "1.0.0",
+  "description": "Lube grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "author": {
+    "name": "dharmx",
+    "email": "dharmx.dev@gmail.com",
+    "url": "https://github.com/dharmx"
+  },
+  "scripts": {
+    "clean": "./.github/lube.sh clean",
+    "build": "./.github/lube.sh build",
+    "refresh": "./.github/lube.sh refresh",
+    "purge": "./.github/lube.sh purge",
+    "install": "./.github/lube.sh install"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  }
+}
