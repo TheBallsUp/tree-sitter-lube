@@ -1,0 +1,12 @@
+========
+SIMPLE TREE
+========
+
+Parse a simple file tree
+
+---
+
+(tree
+  (link)
+  (directory)
+  (file))

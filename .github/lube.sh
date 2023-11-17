@@ -10,12 +10,19 @@ function validate() {
   return 0
 }
 
-for item in $1; do
+function commands() {
+  echo ./.github/lube.sh '[clean|build|refresh|purge|install|test|help]'
+}
+
+for item in $@; do
   case "$item" in
-    clean) rm -r bindings src binding.gyp Cargo.toml ;;
-    build) validate message && ./node_modules/.bin/tree-sitter generate ;;
+    clean) rm -rf bindings src binding.gyp Cargo.toml build &>/dev/null ;;
+    build) validate message && ./node_modules/.bin/tree-sitter generate && node-gyp configure build ;;
     refresh) ./.github/lube.sh clean build ;;
-    purge) ./.github/lube.sh clean && rm -rf ./node_modules ;;
-    install) npm install --save nan && npm install --save-dev tree-sitter-cli ;;
+    purge) ./.github/lube.sh clean && rm -rf ./node_modules &>/dev/null ;;
+    install) npm install ;;
+    test) ./node_modules/.bin/tree-sitter test ;;
+    help) commands ;;
+    *) echo ERROR: No option named $item && commands ;;
   esac
 done
