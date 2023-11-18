@@ -1,10 +1,10 @@
+const name_pattern = /[^\n^/]+/
 module.exports = grammar({
   name: "lube",
   rules: {
-    tree: $ => repeat($._definition),
-    _definition: $ => choice($.file, $.directory, $.link),
-    file: $ => /\w/,
-    directory: $ => seq(/\w/, "/"),
-    link: $ => seq(/\w/, "->", /\w/)
-  },
+    tree: $ => repeat($._node),
+    _node: $ => choice($.file, $.directory),
+    file: $ => name_pattern,
+    directory: $ => prec.left(1, seq(name_pattern, "/", optional(choice($.directory, $.file)))),
+  }
 });
