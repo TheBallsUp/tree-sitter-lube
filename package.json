@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Lube grammar for tree-sitter",
   "main": "bindings/node",
+  "repository": "https://github.com/ikatyang/tree-sitter-toml",
   "keywords": [
     "parser",
     "lexer"
@@ -21,10 +22,29 @@
     "test": "./.github/lube.sh test"
   },
   "license": "GPL-3.0",
+  "files": [
+    "/src/",
+    "/queries/",
+    "/bindings/node/",
+    "/binding.gyp",
+    "/grammar.js"
+  ],
   "dependencies": {
     "nan": "^2.18.0"
   },
   "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.lube",
+      "file-types": [
+        "lube"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^lube$"
+    }
+  ]
 }

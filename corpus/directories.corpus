@@ -1,0 +1,28 @@
+==========================
+DIRECTORIES
+==========================
+
+/
+directory/
+directory/nested/
+directory/nested/more_nested/
+file.h
+directory/file.h
+directory/nested/file.h
+
+--------------------------
+
+(tree
+  (directory)
+  (directory (directory_name))
+  (directory (directory_name)
+    (directory (directory_name)))
+  (directory (directory_name)
+    (directory (directory_name)
+      (directory (directory_name))))
+  (file)
+  (directory (directory_name)
+    (file))
+  (directory (directory_name)
+    (directory (directory_name)
+      (file))))
