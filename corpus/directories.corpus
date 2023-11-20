@@ -3,26 +3,42 @@ DIRECTORIES
 ==========================
 
 /
-directory/
-directory/nested/
-directory/nested/more_nested/
-file.h
-directory/file.h
-directory/nested/file.h
+directory_node_definition/
+directory_node_definition/nested/
+directory_node_definition/nested/more_nested/
+file_node_definition.h
+directory_node_definition/file_node_definition.h
+directory_node_definition/nested/file_node_definition.h
 
 --------------------------
 
-(tree
-  (directory)
-  (directory)
-  (directory
-    (directory))
-  (directory
-    (directory
-      (directory)))
-  (file)
-  (directory
-    (file))
-  (directory
-    (directory
-      (file))))
+(file_tree
+  (directory_node_definition)
+  (newline)
+  (directory_node_definition
+    (title))
+  (newline)
+  (directory_node_definition
+    (title)
+    (directory_node_definition
+      (title)))
+  (newline)
+  (directory_node_definition
+    (title)
+    (directory_node_definition
+      (title)
+      (directory_node_definition
+        (title))))
+  (newline)
+  (file_node_definition)
+  (newline)
+  (directory_node_definition
+    (title)
+    (file_node_definition))
+  (newline)
+  (directory_node_definition
+    (title)
+    (directory_node_definition
+      (title)
+      (file_node_definition)))
+  (newline))

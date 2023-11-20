@@ -14,18 +14,14 @@
     "url": "https://github.com/dharmx"
   },
   "scripts": {
-    "clean": "./.github/lube.sh clean",
-    "build": "./.github/lube.sh build",
-    "refresh": "./.github/lube.sh refresh",
-    "purge": "./.github/lube.sh purge",
     "install": "./.github/lube.sh install",
-    "parse": "./.github/lube.sh parse",
-    "test": "./.github/lube.sh test"
+    "build": "./.github/lube.sh build",
+    "test": "./.github/lube.sh test",
+    "parse": "./.github/lube.sh parse"
   },
   "license": "GPL-3.0",
   "files": [
     "/src/",
-    "/queries/",
     "/bindings/node/",
     "/binding.gyp",
     "/grammar.js"

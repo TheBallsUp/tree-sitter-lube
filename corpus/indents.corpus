@@ -2,14 +2,12 @@
 INDENTS
 ==========================
 
-directory/
-  file.h
-  file.hpp
+directory_node_definition/
 
 
 --------------------------
 
-(tree
-  (directory
-    (file)
-    (file)))
+(file_tree
+  (directory_node_definition
+    (title))
+  (newline))

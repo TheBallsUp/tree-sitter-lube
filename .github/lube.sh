@@ -18,10 +18,7 @@ function commands() {
 
 for item in "$@"; do
   case "$item" in
-    clean) rm -rf bindings src binding.gyp Cargo.toml build &>/dev/null ;;
     build) validate message && $TS generate && node-gyp configure build ;;
-    refresh) ./.github/lube.sh clean build ;;
-    purge) ./.github/lube.sh clean && rm -rf ./node_modules &>/dev/null ;;
     install) npm install ;;
     test) $TS test ;;
     parse) $TS parse ;;

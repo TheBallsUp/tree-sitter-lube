@@ -1,0 +1,91 @@
+[
+  {
+    "type": "directory_node_definition",
+    "named": true,
+    "fields": {
+      "nested": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "directory_node_definition",
+            "named": true
+          },
+          {
+            "type": "file_node_definition",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "hidden_node_definition",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_node_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "hidden_node_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_tree",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "directory_node_definition",
+          "named": true
+        },
+        {
+          "type": "file_node_definition",
+          "named": true
+        },
+        {
+          "type": "newline",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "title",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "hidden_node_definition",
+    "named": true
+  },
+  {
+    "type": "newline",
+    "named": true
+  }
+]

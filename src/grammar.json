@@ -1,0 +1,151 @@
+{
+  "name": "lube",
+  "rules": {
+    "file_tree": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_node_definition"
+      }
+    },
+    "_node_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "file_node_definition"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "directory_node_definition"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "newline"
+        }
+      ]
+    },
+    "hidden_node_definition": {
+      "type": "STRING",
+      "value": "."
+    },
+    "file_node_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "hidden_node_definition"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n^\\/]+"
+        }
+      ]
+    },
+    "_inline_directory": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "hidden_node_definition"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "title"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_nested"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "directory_node_definition": {
+      "type": "SYMBOL",
+      "name": "_inline_directory"
+    },
+    "title": {
+      "type": "PATTERN",
+      "value": "[^\\n^\\/]+"
+    },
+    "_nested": {
+      "type": "FIELD",
+      "name": "nested",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "directory_node_definition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "file_node_definition"
+          }
+        ]
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "newline"
+    }
+  ],
+  "inline": [],
+  "supertypes": []
+}
+

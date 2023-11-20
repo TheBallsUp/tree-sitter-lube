@@ -4,9 +4,9 @@ FILES
 
 B
 b
-build files
-build files files
-build}files>files2421.-ff
+build file_node_definitions
+build file_node_definitions files
+build}file_node_definitions>files2421.-ff
 .[Mikuni Mizuki] Shokuba no Senpai.pdf
 a b c
 compile-flags.txt
@@ -14,13 +14,22 @@ package.json
 
 ---------------------------------------
 
-(tree
-  (file)
-  (file)
-  (file)
-  (file)
-  (file)
-  (file)
-  (file)
-  (file)
-  (file))
+(file_tree
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline)
+  (file_node_definition)
+  (newline))

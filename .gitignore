@@ -1,9 +1,7 @@
 build/
 node_modules/
+target/
 
-bindings/
-src/
-
-binding.gyp
 Cargo.toml
+Cargo.lock
 example.lube
