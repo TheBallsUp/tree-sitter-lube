@@ -14,15 +14,15 @@ directory/nested/file.h
 
 (tree
   (directory)
-  (directory (directory_name))
-  (directory (directory_name)
-    (directory (directory_name)))
-  (directory (directory_name)
-    (directory (directory_name)
-      (directory (directory_name))))
+  (directory)
+  (directory
+    (directory))
+  (directory
+    (directory
+      (directory)))
   (file)
-  (directory (directory_name)
+  (directory
     (file))
-  (directory (directory_name)
-    (directory (directory_name)
+  (directory
+    (directory
       (file))))

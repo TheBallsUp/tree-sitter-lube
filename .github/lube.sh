@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+TS="./node_modules/.bin/tree-sitter"
+
 function validate() {
   if [[ ! -f node_modules/.bin/tree-sitter ]]; then
     if [[ $1 == message ]]; then
@@ -11,18 +13,19 @@ function validate() {
 }
 
 function commands() {
-  echo ./.github/lube.sh '[clean|build|refresh|purge|install|test|help]'
+  echo ./.github/lube.sh '[parse|clean|build|refresh|purge|install|test|help]'
 }
 
-for item in $@; do
+for item in "$@"; do
   case "$item" in
     clean) rm -rf bindings src binding.gyp Cargo.toml build &>/dev/null ;;
-    build) validate message && ./node_modules/.bin/tree-sitter generate && node-gyp configure build ;;
+    build) validate message && $TS generate && node-gyp configure build ;;
     refresh) ./.github/lube.sh clean build ;;
     purge) ./.github/lube.sh clean && rm -rf ./node_modules &>/dev/null ;;
     install) npm install ;;
-    test) ./node_modules/.bin/tree-sitter test ;;
+    test) $TS test ;;
+    parse) $TS parse ;;
     help) commands ;;
-    *) echo ERROR: No option named $item && commands ;;
+    *) echo ERROR: No option named "$item" && commands ;;
   esac
 done

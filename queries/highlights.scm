@@ -1,3 +1,3 @@
 (file) @string
-(directory_name) @number
+(directory) @number
 "/" @punctuation

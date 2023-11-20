@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Lube grammar for tree-sitter",
   "main": "bindings/node",
-  "repository": "https://github.com/ikatyang/tree-sitter-toml",
+  "repository": "https://github.com/TheBallsUp/tree-sitter-lube",
   "keywords": [
     "parser",
     "lexer"
@@ -19,6 +19,7 @@
     "refresh": "./.github/lube.sh refresh",
     "purge": "./.github/lube.sh purge",
     "install": "./.github/lube.sh install",
+    "parse": "./.github/lube.sh parse",
     "test": "./.github/lube.sh test"
   },
   "license": "GPL-3.0",

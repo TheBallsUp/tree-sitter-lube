@@ -1,20 +1,20 @@
 "use strict";
 
-const name_pattern = /[^\n^\/]+/;
+const title_pattern = /[^\n^\/]+/;
 const newline = /\r?\n/;
+const indent = "  "
 
-// TODO: Implement tabbed sub-trees.
 module.exports = grammar({
   name: "lube",
   rules: {
-    tree: $ => repeat(seq($._node, newline)),
-    _node: $ => choice($.file, $.directory),
-    file: $ => name_pattern,
-    directory: function($) {
-      const nested = field("nested", optional(choice($.directory, $.file)))
-      const separate = field("separate", "/")
-      return seq(optional($.directory_name), separate, nested)
-    },
-    directory_name: $ => name_pattern,
+    tree: $ => repeat($._node),
+    _node: $ => seq(choice($.file, $.directory), newline),
+
+    file: $ => title_pattern,
+    _separate: $ => field("separate", "/"),
+    directory: $ => seq(optional($._title), $._separate, optional($._nested)),
+    _title: $ => field("title", title_pattern),
+
+    _nested: $ => field("nested", choice($.directory, $.file)),
   },
 });
