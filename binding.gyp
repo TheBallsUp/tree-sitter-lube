@@ -1,4 +1,4 @@
-{a
+{
   "targets": [
     {
       "target_name": "tree_sitter_lube_binding",
