@@ -45,16 +45,6 @@ enum TokenType {
     DEDENT,
 };
 
-typedef enum {
-    SingleQuote = 1 << 0,
-    DoubleQuote = 1 << 1,
-    BackQuote = 1 << 2,
-    Raw = 1 << 3,
-    Format = 1 << 4,
-    Triple = 1 << 5,
-    Bytes = 1 << 6,
-} Flags;
-
 typedef struct {
     char flags;
 } Delimiter;
@@ -93,10 +83,6 @@ typedef struct {
     bool inside_f_string;
 } Scanner;
 
-static inline void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
-
-static inline void skip(TSLexer *lexer) { lexer->advance(lexer, true); }
-
 bool tree_sitter_lube_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
     Scanner *scanner = (Scanner *)payload;
 
@@ -109,16 +95,16 @@ bool tree_sitter_lube_external_scanner_scan(void *payload, TSLexer *lexer, const
         if (lexer->lookahead == '\n') {
             found_end_of_line = true;
             indent_length = 0;
-            skip(lexer);
+            lexer->advance(lexer, true);
         } else if (lexer->lookahead == ' ') {
             indent_length++;
-            skip(lexer);
+            lexer->advance(lexer, true);
         } else if (lexer->lookahead == '\r' || lexer->lookahead == '\f') {
             indent_length = 0;
-            skip(lexer);
+            lexer->advance(lexer, true);
         } else if (lexer->lookahead == '\t') {
             indent_length += 8;
-            skip(lexer);
+            lexer->advance(lexer, true);
         } else if (lexer->eof(lexer)) {
             indent_length = 0;
             found_end_of_line = true;

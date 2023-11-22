@@ -55,7 +55,7 @@
         }
       ]
     },
-    "_inline_directory": {
+    "directory_node_definition": {
       "type": "SEQ",
       "members": [
         {
@@ -105,10 +105,6 @@
         }
       ]
     },
-    "directory_node_definition": {
-      "type": "SYMBOL",
-      "name": "_inline_directory"
-    },
     "title": {
       "type": "PATTERN",
       "value": "[^\\n^\\/]+"
@@ -143,6 +139,14 @@
     {
       "type": "SYMBOL",
       "name": "newline"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "indent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "dedent"
     }
   ],
   "inline": [],

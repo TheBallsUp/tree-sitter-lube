@@ -3,11 +3,8 @@ INDENTS
 ==========================
 
 directory_node_definition/
-
+  file.h
+  image.png
+  fonts.otf
 
 --------------------------
-
-(file_tree
-  (directory_node_definition
-    (title))
-  (newline))
